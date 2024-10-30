@@ -8,28 +8,54 @@ Este script solicita ao usuário o salário fixo, a comissão por carro vendido,
 - **Bônus sobre Total de Vendas**: 5% de comissão sobre o valor total das vendas.
 - **Bônus Adicional**: 10% de bônus sobre o valor total das vendas, se o vendedor tiver vendido mais de 10 carros.
 
-```python
-# Solicita os dados de entrada do usuário
-salario_fixo = float(input("Digite o salário fixo: R$ "))
-comissao_por_carro = float(input("Digite a comissão por carro vendido: R$ "))
-num_carros_vendidos = int(input("Digite o número de carros vendidos: "))
+# Tabela Verdade - Cálculo de Salário Final
 
-# Inicializa o total de vendas
-total_vendas = 0.0
+| Salário Fixo (R$) | Comissão por Carro (R$) | Número de Carros Vendidos | Total de Vendas (R$) | Salário Final (R$) |
+|-------------------|-------------------------|---------------------------|-----------------------|---------------------|
+| 2000              | 200                     | 0                         | 0                     | 2000.00             |
+| 2000              | 200                     | 5                         | 10000                 | 3500.00             |
+| 2000              | 200                     | 15                        | 20000                 | 8000.00             |
+| 2000              | 200                     | 5                         | 5000                  | 3250.00             |
+| 3000              | 300                     | 0                         | 0                     | 3000.00             |
+| 3000              | 300                     | 5                         | 15000                 | 5250.00             |
+| 3000              | 300                     | 15                        | 25000                 | 11500.00            |
+| 3000              | 300                     | 15                        | 0                     | 7500.00             |
 
-# Se o número de carros vendidos for maior que zero, solicita o total de vendas
-if num_carros_vendidos > 0:
-    total_vendas = float(input("Digite o valor total das vendas: R$ "))
 
-# Calcula o salário final
-salario_final = salario_fixo
+## Análise de Idades
 
-if num_carros_vendidos > 0:
-    salario_final += comissao_por_carro * num_carros_vendidos
-    salario_final += 0.05 * total_vendas  # Adiciona 5% sobre o total de vendas
-    if num_carros_vendidos > 10:
-        salario_final += 0.10 * total_vendas  # Adiciona bônus de 10% sobre o total de vendas
 
-# Exibe o salário final formatado com duas casas decimais
-print(f"O salário final é: R$ {salario_final:.2f}")
+## Objetivo
+Desenvolver um algoritmo que, ao receber as idades de dois homens e duas mulheres, seja capaz de:
+1. Calcular a **soma das idades** do homem mais velho com a mulher mais nova.
+2. Calcular o **produto das idades** do homem mais novo com a mulher mais velha.
+
+Este exercício envolve lógica condicional e manipulação de variáveis para identificar e calcular as idades de interesse.
+
+## Descrição do Problema
+Em um estudo antropológico, busca-se relacionar variáveis demográficas seguindo uma regra específica: 
+- Para o cálculo da idade total, é necessário **somar a idade do homem mais velho com a da mulher mais nova**.
+- Também deve-se calcular o **produto entre a idade do homem mais novo e a idade da mulher mais velha**.
+
+Esses cálculos podem revelar padrões de interação entre as idades, conforme as relações estabelecidas pelo estudo.
+
+## Regras de Negócio
+
+1. O algoritmo deve **identificar o homem mais velho e o homem mais novo**, assim como a **mulher mais velha e a mulher mais nova**, com base nas idades fornecidas.
+2. A **idade do homem mais velho** deve ser **somada** à **idade da mulher mais nova**.
+3. A **idade do homem mais novo** deve ser **multiplicada** pela **idade da mulher mais velha**.
+
+# Tabela Verdade - Análise de Idades
+
+| Idade Homem 1 | Idade Homem 2 | Idade Mulher 1 | Idade Mulher 2 | Homem Mais Velho | Homem Mais Novo | Mulher Mais Velha | Mulher Mais Nova | Soma das Idades | Produto das Idades |
+|---------------|---------------|----------------|----------------|------------------|-----------------|-------------------|------------------|-----------------|---------------------|
+| 30            | 25            | 22             | 30             | 30               | 25              | 30                | 22               | 52              | 750                 |
+| 25            | 30            | 20             | 18             | 30               | 25              | 20                | 18               | 48              | 500                 |
+| 40            | 20            | 30             | 35             | 40               | 20              | 35                | 30               | 70              | 700                 |
+| 50            | 45            | 40             | 25             | 50               | 45              | 40                | 25               | 75              | 1800                |
+| 18            | 20            | 50             | 40             | 20               | 18              | 50                | 40               | 60              | 900                 |
+| 35            | 40            | 32             | 25             | 40               | 35              | 32                | 25               | 65              | 800                 |
+| 60            | 50            | 21             | 30             | 60               | 50              | 30                | 21               | 81              | 1050                |
+| 45            | 40            | 60             | 20             | 45               | 40              | 60                | 20               | 65              | 2400                |
+
 
